@@ -31,6 +31,18 @@ La configuración está en `src/main/resources/application-postgres.properties`.
 ./mvnw test
 ```
 
+Ejecuta 36 tests en tres niveles de la pirámide de testing y genera el reporte de cobertura en `target/site/jacoco/index.html`.
+
+| Clase | Nivel | Herramienta | Tests |
+|---|---|---|---|
+| `ClienteServiceImplTest` | Unitario | Mockito | 11 |
+| `ClienteRestControllerTest` | Integración (web slice) | `@WebMvcTest` + MockMvc | 11 |
+| `IClienteDaoTest` | Integración (data slice) | `@DataJpaTest` + H2 | 6 |
+| `ClienteIntegrationTest` | E2E | Testcontainers + PostgreSQL | 7 |
+| `ClienteServiceApplicationTests` | Contexto | `@SpringBootTest` | 1 |
+
+Los 7 tests E2E requieren Docker; si no está disponible se omiten (`disabledWithoutDocker`). Para ejecutar una sola clase: `./mvnw test -Dtest=ClienteServiceImplTest`.
+
 ## Estructura del proyecto
 
 ```
@@ -90,4 +102,4 @@ Los errores 500 nunca exponen el stacktrace. Los logs usan SLF4J: `WARN` para 40
 
 ## Tecnologías
 
-Spring Boot Web · Spring Data JPA · Bean Validation · Actuator (puerto 8081) · H2 / PostgreSQL · Lombok
+Spring Boot Web · Spring Data JPA · Bean Validation · Actuator (puerto 8081) · H2 / PostgreSQL · Lombok · JUnit 5 · Mockito · Testcontainers · JaCoCo
