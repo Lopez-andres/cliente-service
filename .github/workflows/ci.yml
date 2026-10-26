@@ -12,7 +12,7 @@ jobs:
   # ── Job 1: ejecuta todos los tests ─────────────────────────────────────────
   test:
     name: Tests (Unit + Integration + E2E)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    # se ejecuta en una maquina virtual de ubuntu
 
     steps:
       - name: Checkout código
