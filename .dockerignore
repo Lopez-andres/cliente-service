@@ -1,0 +1,39 @@
+# Maven build artifacts
+target/
+
+# Git files
+.git/
+.github/
+.gitattributes
+
+# Documentation
+*.md
+
+# Maven wrapper (not needed in container)
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.settings/
+.project
+.classpath
+
+# Test files
+src/test/
+
+# Docker files (avoid recursive copying)
+dockerfile
+Dockerfile
+compose.yml
+docker-compose.yml
+.dockerignore
+
+# HTTP request files
+request.http
+*.http
