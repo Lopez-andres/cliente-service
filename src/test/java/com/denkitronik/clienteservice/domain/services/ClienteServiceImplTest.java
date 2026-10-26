@@ -146,7 +146,8 @@ class ClienteServiceImplTest {
 
         List<Cliente> resultado = clienteService.findAll();
 
-        assertThat(resultado).hasSize(1).containsExactly(cliente);
+        // cambiar haz.size a 1
+        assertThat(resultado).hasSize(99).containsExactly(cliente);
         verify(clienteDao, times(1)).findAll();
     }
 
